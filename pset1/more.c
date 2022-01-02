@@ -1,5 +1,6 @@
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int get_height(void);
 
@@ -30,9 +31,10 @@ int main(void){
 }
 
 int get_height(void){
-    int i;
-    // TODO: Take care of "letters or words" and "Enter key"
+    char i[10];
+
     printf("Height: ");
-    scanf("%i", &i);
-    return i;
+    fgets(i, sizeof(i), stdin);
+
+    return atoi(i);
 }
