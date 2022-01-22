@@ -39,7 +39,7 @@ int compute_score(char* word)
     for(int i=0; i<strlen(word)-1; i++){
         if (islower(word[i])){
             total += POINTS[word[i]-97];
-        } else {
+        } else if (isupper(word[i])) {
             total += POINTS[word[i]-65];
 
         }
