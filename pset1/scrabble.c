@@ -36,11 +36,11 @@ int compute_score(char* word)
 {
     // TODO: Compute and return score for string
     int total = 0;
-    for(int i=0; i<strlen(word); i++){
+    for(int i=0; i<strlen(word)-1; i++){
         if (islower(word[i])){
-            total += POINTS[word[i]-96-1];
+            total += POINTS[word[i]-97];
         } else {
-            total += POINTS[word[i]-64-1];
+            total += POINTS[word[i]-65];
 
         }
     }
