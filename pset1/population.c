@@ -32,9 +32,10 @@ int get_int(char* string){
 }
 
 int get_size(char* string, int point){
-    int integer = get_int(string);
-    while(integer < point){
+    int integer;
+    do{
         integer = get_int(string);
-    }
+    }while (integer < point);
+
     return integer;
 }
