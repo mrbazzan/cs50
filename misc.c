@@ -16,7 +16,7 @@ int main(void)
     char name;
 
     printf("What's your name? ");
-    scanf("%s", &name);
+    scanf("%s", &name);  // &name gets the address of `name`, and user's value is stored in that address.
     printf("hello, %s!\n", &name);
 
 //    meow(3);
