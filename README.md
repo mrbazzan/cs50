@@ -18,13 +18,23 @@
       #define h(a) g(a)
       Find h(f(1,2))?
       ```
-  **Order of expansion
+    **Order of expansion
+
 
 - Structs
+  - 
 
-  - Pointers
-    - 
-    `makefile001` introduces make and Makefile
+
+- Pointers
+  - 
+    - Pointer variables are used to hold the memory location(address) of a variable.
+    
+- Memory
+  - 
+  - Dynamic memory allocation is done using functions such as malloc, calloc
+
+
+  `makefile001` introduces make and Makefile
 
 
 ###NB
