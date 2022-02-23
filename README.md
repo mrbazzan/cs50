@@ -26,8 +26,10 @@
 
 
 - Pointers
+
   - 
-    - Pointer variables are used to hold the memory location(address) of a variable.
+      - Pointer variables are used to hold the memory location(address) of a variable.
+      - Pointers are 64bits addresses.
     
 - Memory
   - 
@@ -45,3 +47,7 @@
 
 
 - To read the content of an executable file: use `hexdump "executable_file"`
+
+
+- To debug code; pass `-g` to the `gcc` command. Then use `gdb "filename" core` to debug.
+- Then, `bt` to backtrace.
