@@ -30,6 +30,23 @@
   - 
       - Pointer variables are used to hold the memory location(address) of a variable.
       - Pointers are 64bits addresses.
+  
+      - `->` and `.`?
+        ```
+        e.g 
+        struct food{
+                char *name;
+                int amount;
+        };
+    
+        struct food n = {"Ade", 1};
+        n.name gives "Ade".
+    
+        struct food *n = {"Sayo", 2};
+        n->name gives "Sayo".
+        (*n).name gives "Sayo". // The dereferencing operator(*) has a lower precdence
+                                // than the (.) operator.
+        ```
     
 - Memory
   - 
@@ -49,5 +66,5 @@
 - To read the content of an executable file: use `hexdump "executable_file"`
 
 
-- To debug code; pass `-g` to the `gcc` command. Then use `gdb "filename" core` to debug.
-- Then, `bt` to backtrace.
+- To debug code; pass `-g`option to the `gcc` command. Then use `gdb "filename" core` to debug.
+- `bt` to backtrace.
