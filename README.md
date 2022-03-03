@@ -25,8 +25,12 @@
   - 
 
 
-- Pointers
+- Goto
+  - 
+  - `goto` contains example of 'goto' statement use case.
 
+
+- Pointers
   - 
       - Pointer variables are used to hold the memory location(address) of a variable.
       - Pointers are 64bits addresses.
