@@ -59,6 +59,14 @@
 
   `makefile001` introduces make and Makefile
 
+- Function Pointers
+  - 
+  - What is a function? It's a block of code with a name. It
+  exists somewhere in memory.
+  - A pointer to a function is just the address of where
+  the instruction starts. Therefore, `name of function` == `address of the function`
+      
+
 
 ###NB
 - `gcc -E "file_ending_with_dot_c"`: to check the preprocessed content of a .c file
