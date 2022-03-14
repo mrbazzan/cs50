@@ -59,6 +59,14 @@
 
   `makefile001` introduces make and Makefile
 
+- Extern
+  - 
+  - `extern` keyword in C is used to force declaration of a
+     keyword that was defined elsewhere. It should be used in the
+     header file and not the source files.
+  
+  - `extern/` directory gives an example of how it is used.
+
 - Function Pointers
   - 
   - What is a function? It's a block of code with a name. It
