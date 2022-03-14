@@ -67,6 +67,17 @@
   
   - `extern/` directory gives an example of how it is used.
 
+- Static
+  - 
+  - `static` keyword in C is a storage class specifier. Its meaning is
+  dependent on context.
+    - `Inside a Function`: Make variables retain its value
+    between multiple function calls.
+    
+    - `Outside a Function`: Restrains the visibility of the function or
+    variable to the current file.
+
+
 - Function Pointers
   - 
   - What is a function? It's a block of code with a name. It
