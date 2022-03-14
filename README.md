@@ -88,3 +88,9 @@
 
 - To debug code; pass `-g`option to the `gcc` command. Then use `gdb "filename" core` to debug.
 - `bt` to backtrace.
+
+
+# MATERIALS USED
+- CS50
+- PROF. BARRY BROWN
+- WIKIPEDIA
