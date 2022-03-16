@@ -86,6 +86,29 @@
   the instruction starts. Therefore, `name of function` == `address of the function`
       
 
+- Data Type
+  -
+  - 
+    unsigned int a;
+  - 
+    unsigned b;
+    
+    sizeof(a) == sizeof(b)
+
+- NB: The format specifier used for `unsigned` is `%u`.
+
+
+- NOTE
+  - 
+  
+  ```python
+    unsigned uc;
+    sscanf("F0FD","%02x",&uc);
+  ```
+    It converts "FOFD" to format(%2x) and saves in memory location **uc**.
+    `sscanf` is only concerned with the number between the format specifier.
+    Since it's 2, it only converts "FO" to hexadecimal.
+
 
 ###NB
 - `gcc -E "file_ending_with_dot_c"`: to check the preprocessed content of a .c file
