@@ -14,4 +14,13 @@ int main(void){
 
     int z = bar(3);
     printf("%d\n", z);
+
+    // Logical NOT. "!"
+    char *b = "iloveyou";
+    int a = 12;
+    printf("%i %i\n", a, !a);
+    printf("\n");
+    printf("%s\n", !b);
+    return 0;
+
 }
