@@ -54,7 +54,8 @@
     
 - Memory
   - 
-  - Dynamic memory allocation is done using functions such as malloc, calloc
+  - Dynamic memory allocation is done using functions such as malloc, calloc. Dynamically created memory is stored on the `heap` not `stack` as opposed to 
+    local variables which is stored on the `stack`.
 
 
   `makefile001` introduces make and Makefile
