@@ -60,6 +60,21 @@
 
   `makefile001` introduces make and Makefile
 
+
+- Structure Padding & Packing
+  - Structure Packing
+    - ```
+      #pragma pack(1)
+      ```
+  - Structure Padding
+    - Memory is not read 1 byte at a time from memory. It is read in word. 
+    In a x-bit processor, the amount of memory read in a CPU cycle is x/8.
+    - 
+    - For this reason, the way `struct` is defined really matters. This is
+    in order to prevent number of CPU cycles being run or reduce memory wastage.
+    
+
+
 - Extern
   - 
   - `extern` keyword in C is used to force declaration of a
