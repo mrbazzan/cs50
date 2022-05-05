@@ -8,11 +8,28 @@ RECURSIVE DESCENT PARSER"
 typedef char * string;
 
 int parseSum(string *word);
+int parseFormula(string *word);
 
+
+int parseFormula(string *word){
+    int total = parseSum(word);
+    if (**word == '\0'){
+        return total;
+    }
+}
+
+int parseNumber(string *word){
+    int num = 0;
+    do{
+        num = (num*10) + *(*word)++-'0';
+    }while(**word >= '0' && **word <= '9');
+    // Add condition for '.'
+    return num;
+}
 
 int parseFactor(string *word){
     if (**word >= '0' && **word <= '9'){
-        return *(*word)++-'0';
+        return parseNumber(word);
     }
     else if(**word == '('){
         *(*word)++;
@@ -46,8 +63,13 @@ int parseSum(string *word){
     return total;
 }
 
+// [ ] subtraction
+// [ ] division
+// [ ] negation
+// [ ] exponentiation
+
 int main(void){
-    string x = "2*(3+4)+2";
-    printf("%d\n", parseSum(&x));
+    string x = "2*(35+4)+2";
+    printf("%d\n", parseFormula(&x));
     return 0;
 }
