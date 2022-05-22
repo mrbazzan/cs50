@@ -4,7 +4,7 @@
 #include <string.h>
 
 // Converts void array into "pointer to char"; what we really want is the memory address
-#define ELEMENT_AT(arr, i, size) ((char*)arr+(i*size))
+#define ELEMENT_AT(arr, i, size) (arr+((i)*size))
 
 typedef char * str;
 
@@ -23,22 +23,17 @@ void bsort(void *arr, int len, size_t size, int (*compare_fn) (const void *, con
 
     for(int i=0; i<len; i++){
         for(int j=0; j<len-1; j++){
-            if(compare_fn(arr+(j*size), arr+((j+1)*size)) > 0)  // (*compare_fn)(a, b)
+            if(compare_fn(ELEMENT_AT(arr, j, size), ELEMENT_AT(arr, j+1, size)) > 0)  // (*compare_fn)(a, b)
             {
-
-                memcpy(temp, arr+(j * size), size);
-                memcpy(arr+(j * size), arr+((j+1) * size), size);
-                memcpy(arr+((j+1) * size), temp, size);
-
+                memcpy(temp, ELEMENT_AT(arr, j, size), size);
+                memcpy(ELEMENT_AT(arr, j, size), ELEMENT_AT(arr, j+1, size), size);
+                memcpy(ELEMENT_AT(arr, j+1, size), temp, size);
             }
         }
     }
-
-    free(temp);  // What about trying strcpy or memcpy??
+    free(temp);
 }
 
-
-// TODO: Improve `bsort` to use cmp_fn
 
 int main(void){
     int int_arr[] = {4, 3, -2, 9, 9, 2, 10};
