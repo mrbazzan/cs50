@@ -3,42 +3,38 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Converts void array into int/str, and dereference it
-#define INT(array, val) *((int*)array+val)
-#define STR(array, val) ((str*)array+val)
+// Converts void array into "pointer to char"; what we really want is the memory address
+#define ELEMENT_AT(arr, i, size) ((char*)arr+(i*size))
 
 typedef char * str;
 
 
-void bsort(void *arr, int len, int size){
+int int_compare_fn(const void *a, const void *b){
+    return *(int *)a - *(int *)b;
+}
 
+int str_compare_fn(const void *a, const void *b){
+    return strcmp( *(str*)a, *(str*)b );
+}
+
+
+void bsort(void *arr, int len, size_t size, int (*compare_fn) (const void *, const void *)){
     void *temp = malloc(size);
 
     for(int i=0; i<len; i++){
         for(int j=0; j<len-1; j++){
-            switch (size)
+            if(compare_fn(arr+(j*size), arr+((j+1)*size)) > 0)  // (*compare_fn)(a, b)
             {
-                case 4:
-                    if(INT(arr, j) > INT(arr, j+1))
-                    {
-                        int temp = INT(arr, j);
-                        INT(arr, j) = INT(arr, j+1);
-                        INT(arr, j+1) = temp;
-                    }
-                    break;
-                case 8:
-                    if( strcmp( *STR(arr, j), *STR(arr, j+1) ) > 0 )
-                    {
-                        memcpy( temp, STR(arr, j), size );
-                        memcpy( STR(arr, j), STR(arr, j+1), size );
-                        memcpy( STR(arr, j+1), temp, size );
-                    }
-                    break;
+
+                memcpy(temp, arr+(j * size), size);
+                memcpy(arr+(j * size), arr+((j+1) * size), size);
+                memcpy(arr+((j+1) * size), temp, size);
+
             }
         }
     }
 
-    free(temp);
+    free(temp);  // What about trying strcpy or memcpy??
 }
 
 
@@ -46,13 +42,16 @@ void bsort(void *arr, int len, int size){
 
 int main(void){
     int int_arr[] = {4, 3, -2, 9, 9, 2, 10};
-    str str_arr[] = {"guava", "grape", "apple", "kiwi", "fruit", "melon", "grave"};
+    bsort(int_arr, 7, sizeof(int), int_compare_fn);
 
-    bsort(int_arr, 7, sizeof(int));
-    bsort(str_arr, 7, sizeof(str));
+    str str_arr[] = {"guava", "grape", "apple", "kiwi", "fruit", "melon", "grave"};
+    bsort(str_arr, 7, sizeof(str), str_compare_fn);
 
     for(int i=0; i<7; i++){
-        printf("%d ", int_arr[i]);
+        printf("%d ", *(int_arr+i));
+    }
+    printf("\n");
+    for(int i=0; i<7; i++){
         printf("%s ", str_arr[i]);
     }
     printf("\n");
