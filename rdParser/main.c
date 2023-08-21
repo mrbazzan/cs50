@@ -25,7 +25,8 @@ int parseNumber(string *word){
         num = (num*10) + **word-'0';
         (*word)++;
     }while(**word >= '0' && **word <= '9');
-    // Add condition for '.'
+
+    // TODO: Add condition for '.'
     return num;
 }
 
