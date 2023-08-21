@@ -21,7 +21,9 @@ int parseFormula(string *word){
 int parseNumber(string *word){
     int num = 0;
     do{
-        num = (num*10) + *(*word)++-'0';
+        // *(*pointer)++: dereference pointer, update the pointer then dereference
+        num = (num*10) + **word-'0';
+        (*word)++;
     }while(**word >= '0' && **word <= '9');
     // Add condition for '.'
     return num;
@@ -32,9 +34,14 @@ int parseFactor(string *word){
         return parseNumber(word);
     }
     else if(**word == '('){
-        *(*word)++;
+        // move to the next token after the parenthesis
+        (*word)++;
         int exp = parseSum(word);
-        if (*(*word)++ == ')') return exp;
+        if (**word == ')')
+        {
+            (*word)++;
+            return exp;
+        }
     }
     else{
         printf("Only single digit are supported.\n");
