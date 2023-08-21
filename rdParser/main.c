@@ -10,14 +10,6 @@ typedef char * string;
 int parseSum(string *word);
 int parseFormula(string *word);
 
-
-int parseFormula(string *word){
-    int total = parseSum(word);
-    if (**word == '\0'){
-        return total;
-    }
-}
-
 int parseNumber(string *word){
     int num = 0;
     do{
@@ -69,6 +61,13 @@ int parseSum(string *word){
         total += num;
     }
     return total;
+}
+
+int parseFormula(string *word){
+    int total = parseSum(word);
+    if (**word == '\0'){
+        return total;
+    }
 }
 
 // [ ] subtraction
